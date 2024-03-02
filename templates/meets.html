@@ -1,0 +1,59 @@
+<!-- meets.html -->
+{% extends 'base.html' %}
+
+{% block title %}Meets Data{% endblock %}
+
+{% block content %}
+  <style>
+    h1 {
+      text-align: center;
+      color: #333;
+      font-family: 'Arial', sans-serif;
+      margin-bottom: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: 0 auto;  /* Center the table */
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+
+  <h1>Meets Data</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>MeetID</th>
+        <th>MeetPath</th>
+        <th>Date</th>
+        <th>MeetCountry</th>
+        <th>MeetState</th>
+        <th>MeetTown</th>
+        <th>MeetName</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in meets_data_rows %}
+        <tr>
+          <td>{{ row.MeetID }}</td>
+          <td>{{ row.MeetPath }}</td>
+          <td>{{ row.Date }}</td>
+          <td>{{ row.MeetCountry }}</td>
+          <td>{{ row.MeetState }}</td>
+          <td>{{ row.MeetTown }}</td>
+          <td>{{ row.MeetName }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

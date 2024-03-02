@@ -1,0 +1,81 @@
+<!-- powerlift.html -->
+{% extends 'base.html' %}
+
+{% block title %}Powerlift Data{% endblock %}
+
+{% block content %}
+  <style>
+    h1 {
+      text-align: center;
+      color: #333;
+      font-family: 'Arial', sans-serif;
+      margin-bottom: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: 0 auto;  /* Center the table */
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+
+  <h1>Powerlift Data</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>SN</th>
+        <th>MeetID</th>
+        <th>Name</th>
+        <th>Sex</th>
+        <th>Equipment</th>
+        <th>Age</th>
+        <th>Division</th>
+        <th>BodyweightKg</th>
+        <th>WeightClassKg</th>
+        <th>Squat4Kg</th>
+        <th>BestSquatKg</th>
+        <th>Bench4Kg</th>
+        <th>BestBenchKg</th>
+        <th>Deadlift4Kg</th>
+        <th>BestDeadliftKg</th>
+        <th>TotalKg</th>
+        <th>Place</th>
+        <th>Wilks</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in powerlift_rows %}
+        <tr>
+          <td>{{ row.SN }}</td>
+          <td>{{ row.MeetID }}</td>
+          <td>{{ row.Name }}</td>
+          <td>{{ row.Sex }}</td>
+          <td>{{ row.Equipment }}</td>
+          <td>{{ row.Age }}</td>
+          <td>{{ row.Division }}</td>
+          <td>{{ row.BodyweightKg }}</td>
+          <td>{{ row.WeightClassKg }}</td>
+          <td>{{ row.Squat4Kg }}</td>
+          <td>{{ row.BestSquatKg }}</td>
+          <td>{{ row.Bench4Kg }}</td>
+          <td>{{ row.BestBenchKg }}</td>
+          <td>{{ row.Deadlift4Kg }}</td>
+          <td>{{ row.BestDeadliftKg }}</td>
+          <td>{{ row.TotalKg }}</td>
+          <td>{{ row.Place }}</td>
+          <td>{{ row.Wilks }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
