@@ -1,4 +1,3 @@
-# In your app.py
 from flask import Flask, render_template
 import sqlite3
 
@@ -6,16 +5,16 @@ app = Flask(__name__)
 
 @app.route('/')
 def gym():
-    return render_template('gym.html')
+    return render_template('gym.html') #renders frontpage to gym.html instead of index.html
 
 @app.route('/powerlift')
-def powerlift():
+def powerlift(): #function for powerlift
     try:
         with sqlite3.connect('gym.db') as conn:
             conn.row_factory = sqlite3.Row
             cur = conn.cursor()
 
-            # Fetch data from powerlift table
+            # to get data from powerlift.csv table
             cur.execute("SELECT * FROM powerlift")
             powerlift_rows = cur.fetchall()
     except sqlite3.Error as e:
@@ -25,13 +24,13 @@ def powerlift():
     return render_template('powerlift.html', powerlift_rows=powerlift_rows)
 
 @app.route('/meets')
-def meets():
+def meets(): #function for meets
     try:
         with sqlite3.connect('gym.db') as conn:
             conn.row_factory = sqlite3.Row
             cur = conn.cursor()
 
-            # Fetch data from meets_data table
+            # to get data from meets.csv table
             cur.execute("SELECT * FROM meets_data")
             meets_data_rows = cur.fetchall()
     except sqlite3.Error as e:

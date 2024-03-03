@@ -1,6 +1,6 @@
 import unittest
-from app import app  # Replace 'app' with the actual name of your Flask app instance
-from database_create import init_db  # Adjust the import statement
+from app import app  
+from database_create import init_db  
 
 class TestGymApp(unittest.TestCase):
 
@@ -9,10 +9,10 @@ class TestGymApp(unittest.TestCase):
         app.config['WTF_CSRF_ENABLED'] = False
         self.app = app.test_client()
         with app.app_context():
-            init_db(app)  # Initialize the database for testing
+            init_db(app) 
 
     def tearDown(self):
-        pass  # You may perform cleanup if needed
+        pass  
 
     def test_home_route(self):
         response = self.app.get('/')
@@ -24,16 +24,10 @@ class TestGymApp(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Powerlift Data', response.data)
 
-        # You can add more specific tests related to the content of the powerlift route
-
     def test_meets_route(self):
         response = self.app.get('/meets')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Meets Data', response.data)
-
-        # You can add more specific tests related to the content of the meets route
-
-    # Add more test cases as needed
 
 if __name__ == '__main__':
     unittest.main()

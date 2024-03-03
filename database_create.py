@@ -5,9 +5,9 @@ import csv
 conn = sqlite3.connect('gym.db', detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES)
 cur = conn.cursor()
 
-# Drop the table if it exists
+# to drop the table if it exists
 conn.execute('DROP TABLE IF EXISTS powerlift')
-# Drop the table if it exists
+
 conn.execute('DROP TABLE IF EXISTS meets_data')
 
 conn.execute('''
